@@ -167,7 +167,7 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                       borderRadius: BorderRadius.circular(8.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.2),
+                          color: Colors.grey.withValues(alpha: 51),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 2),
@@ -219,7 +219,7 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                       borderRadius: BorderRadius.circular(8.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.2),
+                          color: Colors.grey.withValues(alpha: 51),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 2),
@@ -232,7 +232,6 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                         child: MarkdownBody(
                           data: _controller.text,
                           selectable: true,
-                          imageDirectory: '',
                           styleSheet: MarkdownStyleSheet(
                             h1: const TextStyle(
                               fontSize: 28,
@@ -282,20 +281,23 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                             return Image.network(
                               uri.toString(),
                               fit: BoxFit.contain,
-                              loadingBuilder: (BuildContext context, Widget child,
+                              loadingBuilder: (BuildContext context,
+                                  Widget child,
                                   ImageChunkEvent? loadingProgress) {
                                 if (loadingProgress == null) return child;
                                 return Center(
                                   child: CircularProgressIndicator(
-                                    value: loadingProgress.expectedTotalBytes != null
-                                        ? loadingProgress.cumulativeBytesLoaded /
+                                    value: loadingProgress.expectedTotalBytes !=
+                                            null
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
                                             loadingProgress.expectedTotalBytes!
                                         : null,
                                   ),
                                 );
                               },
-                              errorBuilder: (BuildContext context, Object exception,
-                                  StackTrace? stackTrace) {
+                              errorBuilder: (BuildContext context,
+                                  Object exception, StackTrace? stackTrace) {
                                 // 当图片加载失败时显示一个占位符
                                 return Container(
                                   padding: const EdgeInsets.all(8.0),
@@ -355,7 +357,7 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                       borderRadius: BorderRadius.circular(8.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.2),
+                          color: Colors.grey.withValues(alpha: 51),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 2),
@@ -407,7 +409,7 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                       borderRadius: BorderRadius.circular(8.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.2),
+                          color: Colors.grey.withValues(alpha: 51),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 2),
@@ -420,7 +422,6 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                         child: MarkdownBody(
                           data: _controller.text,
                           selectable: true,
-                          imageDirectory: '',
                           styleSheet: MarkdownStyleSheet(
                             h1: const TextStyle(
                               fontSize: 28,
@@ -470,20 +471,23 @@ class _MarkdownEditorState extends State<MarkdownEditor> {
                             return Image.network(
                               uri.toString(),
                               fit: BoxFit.contain,
-                              loadingBuilder: (BuildContext context, Widget child,
+                              loadingBuilder: (BuildContext context,
+                                  Widget child,
                                   ImageChunkEvent? loadingProgress) {
                                 if (loadingProgress == null) return child;
                                 return Center(
                                   child: CircularProgressIndicator(
-                                    value: loadingProgress.expectedTotalBytes != null
-                                        ? loadingProgress.cumulativeBytesLoaded /
+                                    value: loadingProgress.expectedTotalBytes !=
+                                            null
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
                                             loadingProgress.expectedTotalBytes!
                                         : null,
                                   ),
                                 );
                               },
-                              errorBuilder: (BuildContext context, Object exception,
-                                  StackTrace? stackTrace) {
+                              errorBuilder: (BuildContext context,
+                                  Object exception, StackTrace? stackTrace) {
                                 // 当图片加载失败时显示一个占位符
                                 return Container(
                                   padding: const EdgeInsets.all(8.0),
